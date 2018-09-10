@@ -60,6 +60,9 @@ func (s *Server) Serve(l net.Listener) error {
 		}
 
 		c := s.newConn(rw)
+
+		//s.Handler.OnConn(c)
+
 		go c.Serve()
 
 	}

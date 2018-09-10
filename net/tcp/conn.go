@@ -2,7 +2,7 @@ package tcp
 
 import (
 	"bufio"
-	net2 "github.com/mingz2013/lib-go/net"
+	"bytes"
 	"net"
 )
 
@@ -23,25 +23,33 @@ type Conn struct {
 func (c Conn) Serve() error {
 
 	for {
-		r, err := c.readRequest()
+		buffer, err := c.readBuffer()
 
 		if err != nil {
 			return err
 		}
 
-		c.server.Handler.Serve(c, r)
+		c.server.Handler.Serve(c, buffer)
 
 	}
 
 }
 
-func (c *Conn) readRequest() (net2.Request, error) {
-	return net2.Request{}, nil
+func (c *Conn) readBuffer() (bytes.Buffer, error) {
+	return
 }
 
-func (c Conn) WriteResponse(resp net2.Response) {
+func (c Conn) WriteBuffer(buffer bytes.Buffer) {
 
 }
+
+//func (c *Conn) readRequest() (net2.Request, error) {
+//	return net2.Request{}, nil
+//}
+//
+//func (c Conn) WriteResponse(resp net2.Response) {
+//
+//}
 
 func (c Conn) GetExtra() int {
 	return c.extra

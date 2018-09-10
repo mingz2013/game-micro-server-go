@@ -1,5 +1,7 @@
 package net
 
+import "bytes"
+
 type Handler interface {
-	Serve(c Conn, r Request)
+	Serve(c Conn, buffer bytes.Buffer)
 }
