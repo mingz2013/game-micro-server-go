@@ -10,6 +10,6 @@ func (c *Conn) Connect() (err error) {
 	return nil
 }
 
-func (c *Conn) ReadResponse() {
-
-}
+//func (c *Conn) ReadResponse() {
+//
+//}
