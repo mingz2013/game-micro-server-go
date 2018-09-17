@@ -1,9 +1,7 @@
 package net
 
-import "bytes"
-
 type Conn interface {
-	WriteBuffer(buffer bytes.Buffer)
+	WriteBuffer(buf []byte)
 	GetExtra() int
 	SetExtra(int)
 	Serve() error

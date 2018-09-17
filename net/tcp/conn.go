@@ -2,7 +2,6 @@ package tcp
 
 import (
 	"bufio"
-	"bytes"
 	"net"
 )
 
@@ -35,11 +34,15 @@ func (c Conn) Serve() error {
 
 }
 
-func (c *Conn) readBuffer() (bytes.Buffer, error) {
+func (c *Conn) readBuffer() (b []byte, e error) {
+	//n,e:=c.rwc.Read(b)
+	//if
+	c.bufr.Read(b)
+
 	return
 }
 
-func (c Conn) WriteBuffer(buffer bytes.Buffer) {
+func (c Conn) WriteBuffer(buf []byte) {
 
 }
 
