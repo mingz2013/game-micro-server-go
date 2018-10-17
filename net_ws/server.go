@@ -8,7 +8,7 @@ import (
 
 type Server struct {
 	rwc     websocket.Conn
-	Handler Handler
+	handler Handler
 	Addr    string
 }
 
@@ -26,7 +26,7 @@ func (s *Server) Start() {
 
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
-		serveWs(s, w, r)
+		serveWs(s.handler, w, r)
 	})
 	log.Println("Server.Start...Addr:", s.Addr)
 	err := http.ListenAndServe(s.Addr, nil)
@@ -41,7 +41,7 @@ func (s *Server) Close() {
 }
 
 func (s *Server) SetHandler(handler Handler) {
-	s.Handler = handler
+	s.handler = handler
 }
 
 //var addr = flag.String("addr", ":8080", "http service address")
@@ -64,13 +64,13 @@ var upgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-func serveWs(server *Server, w http.ResponseWriter, r *http.Request) {
+func serveWs(handler Handler, w http.ResponseWriter, r *http.Request) {
 	rw, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
 		return
 	}
-	conn := &Conn{server: server, rwc: rw}
+	conn := &Conn{handler: handler, rwc: rw}
 	//conn.server.register <- client
 
 	go conn.Serve()

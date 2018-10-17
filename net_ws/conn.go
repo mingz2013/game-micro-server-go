@@ -1,12 +1,13 @@
 package net_ws
 
 import (
+	"encoding/json"
 	"github.com/gorilla/websocket"
 	"log"
 )
 
 type Conn struct {
-	server *Server
+	handler Handler
 
 	removeAddr string
 
@@ -28,7 +29,7 @@ func (c *Conn) Serve() error {
 			return err
 		}
 
-		c.server.Handler.Serve(c, b)
+		c.handler.Serve(c, b)
 
 	}
 
@@ -42,8 +43,27 @@ func (c *Conn) Read() (buf []byte, err error) {
 	return
 }
 
-func (c *Conn) Write(buf []byte) {
+func (c *Conn) Write(buf []byte) (err error) {
 	c.rwc.WriteMessage(1, buf)
+	return
+}
+
+func (c *Conn) WriteString(s string) (err error) {
+
+	data := []byte(s)
+	err = c.Write(data)
+
+	return
+}
+
+func (c *Conn) WriteJson(js interface{}) (err error) {
+
+	data, err := json.Marshal(js)
+	if err != nil {
+		return err
+	}
+	err = c.Write(data)
+	return
 }
 
 func (c *Conn) GetExtra() int {
