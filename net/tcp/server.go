@@ -1,7 +1,6 @@
 package tcp
 
 import (
-	"bufio"
 	net2 "github.com/mingz2013/lib-go/net"
 	"log"
 	"net"
@@ -76,9 +75,9 @@ func (s *Server) newConn(rwc net.Conn) *Conn {
 		rwc:    rwc,
 	}
 
-	c.r = &connReader{conn: c.(*net2.Conn)}
-	c.bufr = bufio.NewReader(c.r)
-	c.bufw = bufio.NewWriterSize(c, 4<<10)
+	//c.r = &connReader{conn: c.(*net2.Conn)}
+	//c.bufr = bufio.NewReader(c.r)
+	//c.bufw = bufio.NewWriterSize(c, 4<<10)
 
 	return c
 }
