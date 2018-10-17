@@ -1,7 +1,7 @@
 package net_tcp
 
 type Client struct {
-	conn    *Conn
+	conn    Conn
 	handler Handler
 }
 
@@ -25,6 +25,7 @@ func (c *Client) Connect(addr string) {
 	err := c.conn.Connect()
 	if err == nil {
 		c.conn.handler = c.handler
+		c.conn.handler.OnConn(&c.conn)
 		c.conn.Serve()
 	}
 }

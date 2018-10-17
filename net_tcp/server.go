@@ -1,15 +1,39 @@
 package net_tcp
 
 import (
-	"bufio"
 	"log"
 	"net"
+	"sync"
 )
 
 type Server struct {
 	Addr     string
 	listener net.Listener
 	handler  Handler
+	conns    map[Conn]interface{}
+
+	mutex     sync.Mutex
+	waitgroup sync.WaitGroup
+}
+
+func (s *Server) addConn(conn Conn) bool {
+	s.mutex.Lock()
+	defer s.mutex.Unlock()
+	if s.conns == nil {
+		return false
+	}
+	s.conns[conn] = nil
+	log.Println("addConn success...")
+	return true
+}
+
+func (s *Server) removeConn(conn Conn) {
+	s.mutex.Lock()
+	defer s.mutex.Unlock()
+	if s.conns != nil {
+		delete(s.conns, conn)
+		conn.Close()
+	}
 }
 
 func NewServer(address string) *Server {
@@ -20,6 +44,7 @@ func NewServer(address string) *Server {
 
 func (s *Server) Init(address string) {
 	s.Addr = address
+	s.conns = make(map[Conn]interface{})
 }
 
 func (s *Server) SetHandler(handler Handler) {
@@ -67,24 +92,41 @@ func (s *Server) Serve(l net.Listener) error {
 		}
 
 		c := s.newConn(rw)
-
-		//s.Handler.OnConn(c)
-
-		go c.Serve()
+		log.Println("after new", c)
+		if !s.addConn(c) {
+			c.Close()
+			continue
+		}
+		log.Println("before handleConn", c)
+		go s.handleConn(c)
+		log.Println("end for....", c)
 
 	}
 
 }
 
-func (s *Server) newConn(rwc net.Conn) *Conn {
-	c := &Conn{
-		handler: s.handler,
-		rwc:     rwc,
-	}
-
-	c.r = &connReader{conn: c}
-	c.bufr = bufio.NewReader(c.r)
-	c.bufw = bufio.NewWriterSize(c.rwc, 4<<10)
-
+func (s *Server) newConn(rwc net.Conn) Conn {
+	c := NewConn()
+	c.rwc = rwc
+	c.handler = s.handler
+	log.Println("newConn...", c)
 	return c
+}
+
+func (s *Server) handleConn(conn Conn) {
+	log.Println("handleConn.....", conn)
+	s.waitgroup.Add(1)
+	defer s.waitgroup.Done()
+	//if !s.addConn(conn) {
+	//	conn.Close()
+	//	return
+	//}
+	defer s.removeConn(conn)
+
+	s.handler.OnConn(&conn)
+	log.Println("handleConn...", conn)
+	conn.Serve()
+
+	s.handler.OnClose(&conn)
+
 }
