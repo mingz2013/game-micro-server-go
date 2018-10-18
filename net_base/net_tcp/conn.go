@@ -67,7 +67,7 @@ func (c *Conn) Serve() (err error) {
 			return err
 		}
 
-		log.Println("Conn.Serve", "c", c, "hander", &c.handler)
+		log.Println("Conn.Serve", "c", c, &c, "buffer", buffer, &buffer)
 		c.handler.Serve(c, buffer)
 
 	}

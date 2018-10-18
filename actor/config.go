@@ -16,7 +16,7 @@ func NewConfig() *Config {
 func (c *Config) Init() {
 	c.address = "localhost:8000"
 	c.protocol = net_base.PROTO_TCP
-	c.protocol = net_base.PROTO_WS
+	//c.protocol = net_base.PROTO_WS
 }
 
 func (c *Config) ParseFromStr(conf string) {

@@ -11,7 +11,7 @@ type ActorHandler struct {
 }
 
 func (h *ActorHandler) Serve(c net_base.Conn, buf []byte) {
-	log.Println("on serve...")
+	log.Println("on serve...", c, buf)
 	s := string(buf)
 	log.Println("receive msg:", s)
 	c.WriteString(s)

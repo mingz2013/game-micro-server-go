@@ -11,7 +11,7 @@ type ClientHandler struct {
 }
 
 func (h *ClientHandler) Serve(c net_base.Conn, buf []byte) {
-	log.Println("on serve...")
+	log.Println("on serve...", c, &c, buf, &buf)
 	s := string(buf)
 	log.Println("receive msg:", s)
 
