@@ -1,6 +1,7 @@
 package net_tcp
 
 import (
+	"github.com/mingz2013/lib-go/net_base"
 	"log"
 	"net"
 	"sync"
@@ -9,7 +10,7 @@ import (
 type Server struct {
 	Addr     string
 	listener net.Listener
-	handler  Handler
+	handler  net_base.Handler
 	conns    map[Conn]interface{}
 
 	mutex     sync.Mutex
@@ -36,9 +37,10 @@ func (s *Server) removeConn(conn Conn) {
 	}
 }
 
-func NewServer(address string) *Server {
+func NewServer(addr string) *Server {
+	log.Println("NewServer", addr)
 	s := &Server{}
-	s.Init(address)
+	s.Init(addr)
 	return s
 }
 
@@ -47,21 +49,21 @@ func (s *Server) Init(address string) {
 	s.conns = make(map[Conn]interface{})
 }
 
-func (s *Server) SetHandler(handler Handler) {
+func (s *Server) SetHandler(handler net_base.Handler) {
 	s.handler = handler
 }
 
-func (s *Server) GetHandler() Handler {
+func (s *Server) GetHandler() net_base.Handler {
 	return s.handler
 }
 
-func (s *Server) Start() {
+func (s *Server) StartServer() {
 	log.Println("Server.Start...")
 	s.ListenAndServe()
 
 }
 
-func (s *Server) Close() {
+func (s *Server) CloseServer() {
 	s.listener.Close()
 	s.listener = nil
 

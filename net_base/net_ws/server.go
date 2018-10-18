@@ -2,19 +2,20 @@ package net_ws
 
 import (
 	"github.com/gorilla/websocket"
+	"github.com/mingz2013/lib-go/net_base"
 	"log"
 	"net/http"
 )
 
 type Server struct {
 	rwc     websocket.Conn
-	handler Handler
+	handler net_base.Handler
 	Addr    string
 }
 
-func NewServer(address string) *Server {
+func NewServer(addr string) *Server {
 	s := &Server{}
-	s.Init(address)
+	s.Init(addr)
 	return s
 }
 
@@ -22,7 +23,7 @@ func (s *Server) Init(address string) {
 	s.Addr = address
 }
 
-func (s *Server) Start() {
+func (s *Server) StartServer() {
 
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
@@ -36,11 +37,11 @@ func (s *Server) Start() {
 
 }
 
-func (s *Server) Close() {
+func (s *Server) CloseServer() {
 	s.rwc.Close()
 }
 
-func (s *Server) SetHandler(handler Handler) {
+func (s *Server) SetHandler(handler net_base.Handler) {
 	s.handler = handler
 }
 
@@ -64,7 +65,7 @@ var upgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-func serveWs(handler Handler, w http.ResponseWriter, r *http.Request) {
+func serveWs(handler net_base.Handler, w http.ResponseWriter, r *http.Request) {
 	rw, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)

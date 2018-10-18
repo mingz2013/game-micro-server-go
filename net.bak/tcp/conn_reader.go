@@ -1,6 +1,6 @@
 package tcp
 
-import "github.com/mingz2013/lib-go/net"
+import "github.com/mingz2013/lib-go/net.bak"
 
 type connReader struct {
 	conn *net_bak.Conn

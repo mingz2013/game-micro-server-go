@@ -1,15 +1,17 @@
 package net_tcp
 
+import "github.com/mingz2013/lib-go/net_base"
+
 type Client struct {
 	conn    Conn
-	handler Handler
+	handler net_base.Handler
 }
 
 func (c *Client) Init() {
 	c.conn = NewConn()
 }
 
-func (c *Client) SetHandler(handler Handler) {
+func (c *Client) SetHandler(handler net_base.Handler) {
 	c.handler = handler
 }
 

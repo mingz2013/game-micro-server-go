@@ -3,11 +3,12 @@ package net_ws
 import (
 	"encoding/json"
 	"github.com/gorilla/websocket"
+	"github.com/mingz2013/lib-go/net_base"
 	"log"
 )
 
 type Conn struct {
-	handler Handler
+	handler net_base.Handler
 
 	removeAddr string
 

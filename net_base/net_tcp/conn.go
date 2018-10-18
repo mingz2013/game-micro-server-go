@@ -3,6 +3,7 @@ package net_tcp
 import (
 	"encoding/binary"
 	"encoding/json"
+	"github.com/mingz2013/lib-go/net_base"
 	"io"
 	"log"
 	"net"
@@ -20,7 +21,7 @@ const (
 )
 
 type Conn struct {
-	handler Handler
+	handler net_base.Handler
 
 	removeAddr string
 
