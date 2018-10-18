@@ -37,12 +37,12 @@ func (c Conn) Serve() error {
 
 }
 
-func (c *Conn) readRequest() (net.Request, error) {
+func (c *Conn) readRequest() (net_bak.Request, error) {
 	c.rwc.ReadMessage()
-	return net.Request{}, nil
+	return net_bak.Request{}, nil
 }
 
-func (c Conn) WriteResponse(resp net.Response) {
+func (c Conn) WriteResponse(resp net_bak.Response) {
 	//c.rwc.WriteMessage()
 }
 

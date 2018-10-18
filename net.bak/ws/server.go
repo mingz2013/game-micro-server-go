@@ -9,7 +9,7 @@ import (
 
 type Server struct {
 	rwc     websocket.Conn
-	Handler net.Handler
+	Handler net_bak.Handler
 	Addr    string
 }
 
@@ -41,7 +41,7 @@ func (s *Server) Close() {
 	s.rwc.Close()
 }
 
-func (s *Server) SetHandler(handler net.Handler) {
+func (s *Server) SetHandler(handler net_bak.Handler) {
 	s.Handler = handler
 }
 
