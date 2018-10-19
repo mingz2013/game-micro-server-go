@@ -1,19 +1,18 @@
-package redis
+package myredis
 
 import (
 	"encoding/json"
 	"github.com/gomodule/redigo/redis"
 	"log"
-	"sync"
 	"time"
 )
 
 type RedisClient struct {
-	pool  *redis.Pool
-	host  string
-	port  string
-	db    int // select
-	wgSub sync.WaitGroup
+	Pool *redis.Pool
+	host string
+	port string
+	db   int // select
+
 }
 
 func NewRedisClient(conf string) *RedisClient {
@@ -42,7 +41,7 @@ func (c *RedisClient) Init(conf string) {
 
 	log.Println(c.host, c.port, c.db)
 
-	c.pool = &redis.Pool{
+	c.Pool = &redis.Pool{
 		MaxIdle:     100,
 		MaxActive:   1024,
 		IdleTimeout: 180 * time.Second,
@@ -66,59 +65,10 @@ func (c *RedisClient) Init(conf string) {
 }
 
 func (c *RedisClient) Do(commandName string, args ...interface{}) (reply interface{}, err error) {
-	conn := c.pool.Get()
+	conn := c.Pool.Get()
 	defer conn.Close()
 
 	return conn.Do(commandName, args...)
-}
-
-func (c *RedisClient) Subscribe(channel string, onMessage func(channel string, data []byte), onSubscription func(channel string, kind string, count int)) {
-	//redisChannel := "redChatRoom"
-	conn := c.pool.Get()
-	psc := redis.PubSubConn{conn}
-	psc.Subscribe(channel)
-
-	c.wgSub.Add(1)
-	go func() {
-		defer func() {
-			conn.Close()
-			psc.Unsubscribe(channel)
-			c.wgSub.Done()
-		}()
-
-		for {
-			switch v := psc.Receive().(type) {
-			case redis.Message:
-				log.Println("messages<", v.Channel, ">:", v.Data)
-				onMessage(v.Channel, v.Data)
-			case redis.Subscription:
-				log.Println(v.Channel, v.Kind, v.Count)
-				onSubscription(v.Channel, v.Kind, v.Count)
-				continue
-			case error:
-				log.Println(v)
-				return
-
-			}
-		}
-
-	}()
-}
-
-func (c *RedisClient) Pubscribe(channel string, data []byte) (err error) {
-
-	log.Println("pub msg", data)
-	//redisChannel := "redChatRoom"
-	conn := c.pool.Get()
-
-	defer conn.Close()
-
-	_, err = c.Do("PUBLISH", channel, data)
-	if err != nil {
-		log.Println("pub err:", err)
-	}
-	return err
-
 }
 
 func (c *RedisClient) String(reply interface{}, err error) (string, error) {

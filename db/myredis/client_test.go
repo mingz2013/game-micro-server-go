@@ -1,4 +1,4 @@
-package redis
+package myredis
 
 import (
 	"encoding/json"
@@ -62,16 +62,6 @@ func TestRedisClient(t *testing.T) {
 	}
 
 	log.Println("get imap1", imap1)
-
-	client.Subscribe("test-channel", func(channel string, data []byte) {
-
-		log.Println("channel", channel, "data", data)
-
-	}, func(channel string, kind string, count int) {
-		log.Println("channel", channel, "kind", kind, "count", count)
-	})
-
-	client.Pubscribe("test-channel", []byte("hello"))
 
 	ch := make(chan int)
 	<-ch
