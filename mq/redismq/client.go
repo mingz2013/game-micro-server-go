@@ -38,6 +38,7 @@ func (c *RedisMQClient) Subscribe(channel string, onMessage func(channel string,
 	c.wgSub.Add(1)
 	go func() {
 		defer func() {
+			log.Println("chan close...")
 			conn.Close()
 			psc.Unsubscribe(channel)
 			c.wgSub.Done()
@@ -50,7 +51,21 @@ func (c *RedisMQClient) Subscribe(channel string, onMessage func(channel string,
 				onMessage(v.Channel, v.Data)
 			case redis.Subscription:
 				log.Println(v.Channel, v.Kind, v.Count)
-				onSubscription(v.Channel, v.Kind, v.Count)
+
+				switch v.Kind {
+				case "subscribe":
+					onSubscription(v.Channel, v.Kind, v.Count)
+				case "unsubscribe":
+					return
+				case "psubscribe":
+					onSubscription(v.Channel, v.Kind, v.Count)
+				case "punsubscribe":
+					return
+				default:
+					return
+
+				}
+
 				continue
 			case error:
 				log.Println(v)
