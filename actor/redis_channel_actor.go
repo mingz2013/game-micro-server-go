@@ -11,7 +11,7 @@ type RedisChannelActor struct {
 	//handler net_base.Handler
 	Config *Config
 
-	mailbox chan interface{}
+	//mailbox chan interface{}
 
 	callbacks map[string]map[int64]chan Mail // {"channel": {"mark_id": chan}}
 
@@ -39,7 +39,7 @@ func (a *RedisChannelActor) Init(conf string) {
 
 	a.redisMQClient = redismq.NewRedisMQClient(conf)
 
-	a.redisMQClient.Subscribe(a.channel, a.OnMessage, a.OnMessage)
+	a.redisMQClient.Subscribe(a.channel, a.OnMessage, a.onSubscription)
 
 	//a.mailbox = make(chan interface{}, 1024)
 
@@ -106,6 +106,10 @@ func (a *RedisChannelActor) OnMessage(channel string, data []byte) {
 
 }
 
+func (a *RedisChannelActor) onSubscription(channel string, kind string, count int) {
+
+}
+
 func (a *RedisChannelActor) ReceiveMail(mail Mail) {
 	if mail.isBack {
 		a.callbacks[mail.from][mail.mark] <- mail
@@ -113,6 +117,7 @@ func (a *RedisChannelActor) ReceiveMail(mail Mail) {
 	}
 
 	message := a.ReadMail(mail)
+
 	if mail.needBack {
 		backmail := NewMail(a.channel, mail.from, message, false, true)
 		data, _ := json.Marshal(backmail)
