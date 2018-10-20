@@ -90,7 +90,11 @@ func (a *RedisChannelActor) SendMailNeedBack(mail Mail) Mail {
 	}
 	channelmails[mail.mark] = make(chan Mail)
 
-	return <-channelmails[mail.mark]
+	retmail := <-channelmails[mail.mark]
+
+	delete(channelmails, mail.mark)
+
+	return retmail
 
 }
 
