@@ -13,6 +13,8 @@ type RedisMQClient struct {
 	wgSub sync.WaitGroup
 
 	channelMap map[string]redis.PubSubConn
+
+	handler Handler
 }
 
 func (c *RedisMQClient) Init(conf string) {

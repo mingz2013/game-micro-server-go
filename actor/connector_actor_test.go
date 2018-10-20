@@ -33,7 +33,7 @@ func NewHandler() *ActorHandler {
 }
 
 func TestNewActor(t *testing.T) {
-	a := NewActor("")
+	a := NewConnectorActor("")
 	a.SetHandler(NewHandler())
 	a.Start()
 
