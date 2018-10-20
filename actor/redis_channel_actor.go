@@ -95,6 +95,10 @@ func (a *RedisChannelActor) SendMailNeedBack(mail Mail) Mail {
 }
 
 func (a *RedisChannelActor) OnMessage(channel string, data []byte) {
+	if a.channel != channel {
+		log.Fatalln("err...channel not equal")
+		return
+	}
 	var mail Mail
 	json.Unmarshal(data, mail)
 
