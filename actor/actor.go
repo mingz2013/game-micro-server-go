@@ -25,17 +25,6 @@ func (a *Actor) Init(conf string) {
 
 	a.mailbox = make(chan interface{}, 1024)
 
-	//log.Println("Actor.Init...PROTO_TYPE", a.Config.protocol)
-	//switch a.Config.protocol {
-	//case net_base.PROTO_TCP:
-	//	a.server = net_tcp.NewServer(a.Config.address)
-	//case net_base.PROTO_WS:
-	//	a.server = net_ws.NewServer(a.Config.address)
-	//default:
-	//	log.Println("error...", a.Config)
-	//
-	//}
-
 }
 
 //func (a *Actor) SetHandler(handler net_base.Handler) {
@@ -53,11 +42,11 @@ func (a *Actor) Close() {
 	//a.server.CloseServer()
 }
 
-func (a *Actor) Send() {
+func (a *Actor) SendMail() {
 	// 异步发送，不需要返回
 }
 
-func (a *Actor) Query() {
+func (a *Actor) SendMailNeedBack() {
 	// 同步请求，需要回调
 }
 
