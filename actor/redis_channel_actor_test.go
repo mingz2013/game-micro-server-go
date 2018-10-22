@@ -25,4 +25,7 @@ func TestNewRedisChannelActor(t *testing.T) {
 	log.Println("send mail", mail)
 	ret := a.SendMailNeedBack(*mail)
 	log.Println("ret:->", ret)
+
+	a.Wait()
+
 }

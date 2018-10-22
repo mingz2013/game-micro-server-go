@@ -18,6 +18,10 @@ type RedisMQClient struct {
 	handler Handler
 }
 
+func (c *RedisMQClient) Wait() {
+	c.wgSub.Wait()
+}
+
 func (c *RedisMQClient) Init(conf string) {
 	c.RedisClient.Init(conf)
 	c.channelMap = make(map[string]redis.PubSubConn)

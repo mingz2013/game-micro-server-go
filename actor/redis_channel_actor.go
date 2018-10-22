@@ -137,8 +137,19 @@ func (a *RedisChannelActor) ReceiveMail(mail Mail) {
 	if mail.IsBack {
 		log.Println("ReceiveMail", "IsBack", mail)
 		log.Println("chan, send", a.callbacks[mail.From][mail.Mark], mail.From, mail.Mark)
-		a.callbacks[mail.From][mail.Mark] <- mail
+		//a.callbacks[mail.From][mail.Mark] <- mail
+		channelmails, ok := a.callbacks[mail.From]
+		if !ok {
+			log.Fatalln("sendback not ok")
+		}
+		channelmail, ok := channelmails[mail.Mark]
+		if !ok {
+			log.Fatalln("channel mail mark not ok")
+		}
+		channelmail <- mail
+
 		log.Println("return ......ReceiveMail")
+
 		return
 	}
 
@@ -157,4 +168,8 @@ func (a *RedisChannelActor) ReadMail(mail Mail) (message []byte) {
 	// 读消息
 	message = mail.Message
 	return
+}
+
+func (a *RedisChannelActor) Wait() {
+	a.redisMQClient.Wait()
 }
