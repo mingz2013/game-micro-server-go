@@ -20,12 +20,18 @@ type RedisChannelActor struct {
 	channel string // 频道id, 同时也是actorid
 
 	redisMQClient *redismq.RedisMQClient
+
+	handler RedisChannelActorHandler
 }
 
 func NewRedisChannelActor(conf string) *RedisChannelActor {
 	a := &RedisChannelActor{}
 	a.Init(conf)
 	return a
+}
+
+func (a *RedisChannelActor) SetHandler(handler RedisChannelActorHandler) {
+	a.handler = handler
 }
 
 func (a *RedisChannelActor) Init(conf string) {
@@ -166,7 +172,8 @@ func (a *RedisChannelActor) ReceiveMail(mail Mail) {
 
 func (a *RedisChannelActor) ReadMail(mail Mail) (message []byte) {
 	// 读消息
-	message = mail.Message
+	//message = mail.Message
+	message = a.handler.OnRedisChannelMessage(mail.Message)
 	return
 }
 
