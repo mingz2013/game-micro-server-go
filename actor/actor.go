@@ -5,7 +5,7 @@ type Actor struct {
 	//handler net_base.Handler
 	Config *Config
 
-	mailbox chan interface{}
+	//mailbox chan interface{}
 
 	callbacks []chan interface{}
 }
@@ -23,7 +23,7 @@ func (a *Actor) Init(conf string) {
 	a.Config = NewConfig()
 	a.Config.ParseFromStr(conf)
 
-	a.mailbox = make(chan interface{}, 1024)
+	//a.mailbox = make(chan interface{}, 1024)
 
 }
 

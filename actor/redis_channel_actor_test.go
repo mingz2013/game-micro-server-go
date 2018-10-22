@@ -2,6 +2,7 @@ package actor
 
 import (
 	"encoding/json"
+	"log"
 	"testing"
 )
 
@@ -20,8 +21,8 @@ func TestNewRedisChannelActor(t *testing.T) {
 
 	message := "hello , my name is actor redis"
 
-	mail := NewMail(a.channel, a.channel, []byte(message), true, false)
-
-	a.SendMailNeedBack(*mail)
-
+	mail := NewMail(a.channel, a.channel, []byte(message), true, false, 0)
+	log.Println("send mail", mail)
+	ret := a.SendMailNeedBack(*mail)
+	log.Println("ret:->", ret)
 }

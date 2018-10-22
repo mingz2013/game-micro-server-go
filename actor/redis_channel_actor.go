@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/mingz2013/lib-go/mq/redismq"
 	"log"
+	"sync"
 )
 
 type RedisChannelActor struct {
@@ -13,9 +14,10 @@ type RedisChannelActor struct {
 
 	//mailbox chan interface{}
 
-	callbacks map[string]map[int64]chan Mail // {"channel": {"mark_id": chan}}
+	callbacks      map[string]map[int64]chan Mail // {"channel": {"mark_id": chan}}
+	callbacksMutex sync.Mutex
 
-	channel string // 频道id
+	channel string // 频道id, 同时也是actorid
 
 	redisMQClient *redismq.RedisMQClient
 }
@@ -65,46 +67,60 @@ func (a *RedisChannelActor) SendMail(mail Mail) {
 
 	data, _ := json.Marshal(mail)
 
-	a.redisMQClient.Pubscribe(mail.to, data)
+	a.redisMQClient.Pubscribe(mail.To, data)
 
 }
 
 func (a *RedisChannelActor) SendMailNeedBack(mail Mail) Mail {
 	// 同步请求，需要回调
 
-	data, _ := json.Marshal(mail)
+	log.Println("SendMailNeedBack", "mail", mail)
 
-	a.redisMQClient.Pubscribe(mail.to, data)
+	data, _ := json.Marshal(&mail)
 
-	channelmails, ok := a.callbacks[mail.to]
+	log.Println("SendMailNeedBack", "data", data)
+
+	a.callbacksMutex.Lock()
+	channelmails, ok := a.callbacks[mail.To]
 	if !ok {
 		channelmails = make(map[int64]chan Mail)
-		a.callbacks[mail.to] = channelmails
+		a.callbacks[mail.To] = channelmails
 
 	}
 
-	_, ok = channelmails[mail.mark]
+	_, ok = channelmails[mail.Mark]
 	if ok {
 		log.Fatalln("err....., mark_id has already exits")
 
 	}
-	channelmails[mail.mark] = make(chan Mail)
+	channelmails[mail.Mark] = make(chan Mail)
 
-	retmail := <-channelmails[mail.mark]
+	log.Println("chan, make", channelmails[mail.Mark], mail.To, mail.Mark)
+	a.callbacksMutex.Unlock()
 
-	delete(channelmails, mail.mark)
+	a.redisMQClient.Pubscribe(mail.To, data)
+
+	log.Println("wait back....")
+	a.callbacksMutex.Lock()
+	log.Println("chan, receive", channelmails[mail.Mark])
+	retmail := <-channelmails[mail.Mark]
+	log.Println("receive back", retmail)
+
+	delete(channelmails, mail.Mark)
+	a.callbacksMutex.Unlock()
 
 	return retmail
 
 }
 
 func (a *RedisChannelActor) OnMessage(channel string, data []byte) {
+	log.Println("OnMessage<"+channel+">", data)
 	if a.channel != channel {
 		log.Fatalln("err...channel not equal")
 		return
 	}
 	var mail Mail
-	json.Unmarshal(data, mail)
+	json.Unmarshal(data, &mail)
 
 	a.ReceiveMail(mail)
 
@@ -115,17 +131,23 @@ func (a *RedisChannelActor) onSubscription(channel string, kind string, count in
 }
 
 func (a *RedisChannelActor) ReceiveMail(mail Mail) {
-	if mail.isBack {
-		a.callbacks[mail.from][mail.mark] <- mail
+
+	log.Println("ReceiveMail", mail, mail.IsBack)
+
+	if mail.IsBack {
+		log.Println("ReceiveMail", "IsBack", mail)
+		log.Println("chan, send", a.callbacks[mail.From][mail.Mark], mail.From, mail.Mark)
+		a.callbacks[mail.From][mail.Mark] <- mail
+		log.Println("return ......ReceiveMail")
 		return
 	}
 
 	message := a.ReadMail(mail)
 
-	if mail.needBack {
-		backmail := NewMail(a.channel, mail.from, message, false, true)
+	if mail.NeedBack {
+		backmail := NewMail(a.channel, mail.From, message, false, true, mail.Mark)
 		data, _ := json.Marshal(backmail)
-		a.redisMQClient.Pubscribe(backmail.to, data)
+		a.redisMQClient.Pubscribe(backmail.To, data)
 
 	}
 
@@ -133,5 +155,6 @@ func (a *RedisChannelActor) ReceiveMail(mail Mail) {
 
 func (a *RedisChannelActor) ReadMail(mail Mail) (message []byte) {
 	// 读消息
+	message = mail.Message
 	return
 }

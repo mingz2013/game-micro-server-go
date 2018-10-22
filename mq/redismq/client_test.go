@@ -23,16 +23,18 @@ func TestNewRedisMQClient(t *testing.T) {
 
 	client.Subscribe("test-channel", func(channel string, data []byte) {
 
+		//ch:=make(chan int)
+		//<-ch
+
 		log.Println("channel", channel, "data", data)
-		client.Unsubscribe("test-channel")
+		//client.Unsubscribe("test-channel")
 
 	}, func(channel string, kind string, count int) {
 		log.Println("channel", channel, "kind", kind, "count", count)
 	})
 
 	client.Pubscribe("test-channel", []byte("hello"))
+	client.Pubscribe("test-channel", []byte("world"))
 
-	ch := make(chan int)
-	<-ch
-
+	client.wgSub.Wait()
 }

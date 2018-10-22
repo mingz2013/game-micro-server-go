@@ -7,13 +7,13 @@ var (
 )
 
 type Mail struct {
-	from      string // channel
-	to        string // channel
-	message   []byte
-	needBack  bool  // 是否需要回信
-	isBack    bool  // 是否是回信
-	timestamp int64 // 时间戳
-	mark      int64 // 标记，用于回信的时候，标明回的哪一封信
+	From      string `json:from` // channel
+	To        string `json:to`   // channel
+	Message   []byte `json:message`
+	NeedBack  bool   `json:needback`  // 是否需要回信
+	IsBack    bool   `json:isback`    // 是否是回信
+	Timestamp int64  `json:timestamp` // 时间戳
+	Mark      int64  `json:mark`      // 标记，用于回信的时候，标明回的哪一封信
 }
 
 func Init() {
@@ -21,16 +21,23 @@ func Init() {
 	MARK_ID = 0
 }
 
-func NewMail(from string, to string, message []byte, needBack bool, isBack bool) *Mail {
-	MARK_ID += 1
+func NewMail(from string, to string, message []byte, needBack bool, isBack bool, mark int64) *Mail {
+
 	m := &Mail{
-		from:      from,
-		to:        to,
-		message:   message,
-		needBack:  needBack,
-		isBack:    isBack,
-		timestamp: time.Now().Unix(),
-		mark:      MARK_ID,
+		From:      from,
+		To:        to,
+		Message:   message,
+		NeedBack:  needBack,
+		IsBack:    isBack,
+		Timestamp: time.Now().Unix(),
+		Mark:      mark,
+	}
+
+	if isBack {
+
+	} else {
+		MARK_ID += 1
+		m.Mark = MARK_ID
 	}
 
 	return m

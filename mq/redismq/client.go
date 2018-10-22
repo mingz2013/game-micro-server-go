@@ -13,6 +13,7 @@ type RedisMQClient struct {
 	wgSub sync.WaitGroup
 
 	channelMap map[string]redis.PubSubConn
+	mu         sync.Mutex
 
 	handler Handler
 }
@@ -33,26 +34,30 @@ func NewRedisMQClient(conf string) *RedisMQClient {
 func (c *RedisMQClient) Subscribe(channel string, onMessage func(channel string, data []byte), onSubscription func(channel string, kind string, count int)) {
 	//redisChannel := "redChatRoom"
 	conn := c.Pool.Get()
+	log.Println("Subscribe, get conn from pool", conn)
 	psc := redis.PubSubConn{conn}
 	psc.Subscribe(channel)
+	c.mu.Lock()
 	c.channelMap[channel] = psc
+	c.mu.Unlock()
 
 	c.wgSub.Add(1)
 	go func() {
 		defer func() {
-			log.Println("chan close...")
-			conn.Close()
-			psc.Unsubscribe(channel)
+			log.Println("Subscribe close..., to Unsubscribe...")
+			//conn.Close()
+			c.Unsubscribe(channel)
+			//psc.Close()
 			c.wgSub.Done()
 		}()
 
 		for {
 			switch v := psc.Receive().(type) {
 			case redis.Message:
-				log.Println("messages<", v.Channel, ">:", v.Data)
+				log.Println("messages<"+v.Channel+">:", v.Data)
 				onMessage(v.Channel, v.Data)
 			case redis.Subscription:
-				log.Println(v.Channel, v.Kind, v.Count)
+				log.Println("Subscription<"+v.Channel+">:", v.Kind, v.Count)
 
 				switch v.Kind {
 				case "subscribe":
@@ -70,8 +75,9 @@ func (c *RedisMQClient) Subscribe(channel string, onMessage func(channel string,
 
 				continue
 			case error:
-				log.Println(v)
+				log.Println("error:", v)
 				return
+				//continue
 
 			}
 		}
@@ -80,6 +86,8 @@ func (c *RedisMQClient) Subscribe(channel string, onMessage func(channel string,
 }
 
 func (c *RedisMQClient) Unsubscribe(channel string) {
+	log.Println("Unsubscribe...", channel)
+	c.mu.Lock()
 	conn, ok := c.channelMap[channel]
 	if !ok {
 		return
@@ -87,17 +95,26 @@ func (c *RedisMQClient) Unsubscribe(channel string) {
 	conn.Unsubscribe(channel)
 	conn.Close()
 	delete(c.channelMap, channel)
+	c.mu.Unlock()
 }
 
 func (c *RedisMQClient) Pubscribe(channel string, data []byte) (err error) {
 
-	log.Println("pub msg", data)
+	log.Println("Pubscribe msg", "channel", channel, "<-data", data)
 	//redisChannel := "redChatRoom"
 	conn := c.Pool.Get()
+	log.Println("Pubscribe, get conn from pool", conn)
 
-	defer conn.Close()
+	//psc := redis.PubSubConn{conn}
 
-	_, err = c.Do("PUBLISH", channel, data)
+	defer func() {
+		log.Println("Pubscribe:close...")
+		conn.Close()
+	}()
+
+	//psc.
+
+	_, err = conn.Do("PUBLISH", channel, data)
 	if err != nil {
 		log.Println("pub err:", err)
 	}
