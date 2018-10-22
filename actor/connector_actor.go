@@ -12,7 +12,7 @@ type ConnectorActor struct {
 	handler net_base.Handler
 	Config  *Config
 
-	mailbox chan interface{}
+	//mailbox chan interface{}
 }
 
 func NewConnectorActor(conf string) *ConnectorActor {
