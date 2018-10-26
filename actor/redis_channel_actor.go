@@ -39,9 +39,19 @@ func (a *RedisChannelActor) Init(conf string) {
 
 	//a.Handler = NewConnectorApp()
 	a.Config = NewConfig()
-	a.Config.ParseFromStr(conf)
+	//a.Config.ParseFromStr(conf)
 
-	a.channel = "123"
+	var confJs map[string]interface{}
+	err := json.Unmarshal([]byte(conf), &confJs)
+
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	log.Println(confJs)
+
+	a.channel = confJs["channel"].(string)
 
 	a.callbacks = make(map[string]map[int64]chan Mail)
 

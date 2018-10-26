@@ -3,7 +3,8 @@ package actor
 import "github.com/mingz2013/lib-go/net_base"
 
 type Config struct {
-	address  string
+	host     string
+	port     string
 	protocol string
 }
 
@@ -14,7 +15,8 @@ func NewConfig() *Config {
 }
 
 func (c *Config) Init() {
-	c.address = "localhost:8000"
+	c.host = "localhost"
+	c.port = "8000"
 	c.protocol = net_base.PROTO_TCP
 	//c.protocol = net_base.PROTO_WS
 }

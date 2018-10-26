@@ -1,6 +1,7 @@
 package actor
 
 import (
+	"encoding/json"
 	"github.com/mingz2013/lib-go/net_base"
 	"github.com/mingz2013/lib-go/net_base/net_tcp"
 	"github.com/mingz2013/lib-go/net_base/net_ws"
@@ -28,13 +29,19 @@ func (a *ConnectorActor) Init(conf string) {
 	a.Config = NewConfig()
 	a.Config.ParseFromStr(conf)
 
+	var confJs map[string]interface{}
+	json.Unmarshal([]byte(conf), &confJs)
+
+	a.Config.port = confJs["port"].(string)
+	a.Config.host = confJs["host"].(string)
+
 	log.Println("Actor.Init...PROTO_TYPE", a.Config.protocol)
 
 	switch a.Config.protocol {
 	case net_base.PROTO_TCP:
-		a.server = net_tcp.NewServer(a.Config.address)
+		a.server = net_tcp.NewServer(a.Config.host + ":" + a.Config.port)
 	case net_base.PROTO_WS:
-		a.server = net_ws.NewServer(a.Config.address)
+		a.server = net_ws.NewServer(a.Config.host + ":" + a.Config.port)
 	default:
 		log.Println("error...", a.Config)
 
