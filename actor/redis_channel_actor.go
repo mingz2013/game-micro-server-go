@@ -5,6 +5,7 @@ import (
 	"github.com/mingz2013/lib-go/mq/redismq"
 	"log"
 	"sync"
+	"time"
 )
 
 type RedisChannelActor struct {
@@ -120,7 +121,24 @@ func (a *RedisChannelActor) SendMailNeedBack(mail Mail) Mail {
 	log.Println("wait back....")
 	a.callbacksMutex.Lock()
 	log.Println("chan, receive", channelmails[mail.Mark])
-	retmail := <-channelmails[mail.Mark]
+
+	var retmail Mail
+	select {
+	case retmail, ok = <-channelmails[mail.Mark]:
+		{
+			//return retmail
+			break
+		}
+
+	case <-time.After(time.Second * 10):
+		{
+			//return nil
+			retmail.Message, _ = json.Marshal("{\"timeout\"}")
+			break
+		}
+
+	}
+
 	log.Println("receive back", retmail)
 
 	delete(channelmails, mail.Mark)
