@@ -57,8 +57,6 @@ func (a *RedisChannelActor) Init(conf string) {
 
 	a.redisMQClient = redismq.NewRedisMQClient(conf)
 
-	a.redisMQClient.Subscribe(a.channel, a.OnMessage, a.onSubscription)
-
 	//a.mailbox = make(chan interface{}, 1024)
 
 }
@@ -70,12 +68,15 @@ func (a *RedisChannelActor) Init(conf string) {
 
 func (a *RedisChannelActor) Start() {
 
-	//a.server.StartServer()
+	a.redisMQClient.Subscribe(a.channel, a.OnMessage, a.onSubscription)
+
+	//a.Wait()
 
 }
 
 func (a *RedisChannelActor) Close() {
 	//a.server.CloseServer()
+	a.redisMQClient.Unsubscribe(a.channel)
 }
 
 func (a *RedisChannelActor) SendMail(mail Mail) {
@@ -188,5 +189,6 @@ func (a *RedisChannelActor) ReadMail(mail Mail) (message []byte) {
 }
 
 func (a *RedisChannelActor) Wait() {
+	log.Println("RedisChannelActor.Wait...")
 	a.redisMQClient.Wait()
 }
