@@ -130,6 +130,32 @@ func (a *RedisChannelActor) SendMailNeedBack(mail Mail) Mail {
 
 }
 
+func (a *RedisChannelActor) Query(channelto string, message []byte) []byte {
+	mail := Mail{
+		Message:  message,
+		To:       channelto,
+		From:     a.channel,
+		NeedBack: true,
+	}
+
+	backmail := a.SendMailNeedBack(mail)
+	return backmail.Message
+
+}
+
+func (a *RedisChannelActor) Send(channelto string, message []byte) {
+	mail := Mail{
+		Message:  message,
+		To:       channelto,
+		From:     a.channel,
+		NeedBack: false,
+	}
+
+	a.SendMail(mail)
+	return
+
+}
+
 func (a *RedisChannelActor) OnMessage(channel string, data []byte) {
 	log.Println("OnMessage<"+channel+">", data)
 	if a.channel != channel {
