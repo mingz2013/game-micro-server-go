@@ -31,7 +31,7 @@ func NewTableManager(id string, msgIn <-chan msg.Msg, msgOut chan<- msg.Msg) Man
 	return m
 }
 
-func (mgr *Manager) Run() {
+func (mgr Manager) Run() {
 
 	for {
 		select {
