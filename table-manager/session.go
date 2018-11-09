@@ -21,6 +21,11 @@ type TableSession struct {
 	TableId int
 }
 
+func (s *TableSession) Close() {
+	s.Table.Close()
+	close(s.MsgIn)
+}
+
 func NewTableSession(table table.Table, msgIn chan msg.Msg, msgOut chan msg.Msg, tableId int) TableSession {
 	return TableSession{Table: table, MsgIn: msgIn, MsgOut: msgOut, TableId: tableId}
 }

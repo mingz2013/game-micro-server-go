@@ -60,7 +60,8 @@ func (mgr *Manager) onMsg(m msg.Msg) {
 	switch m.GetCmd() {
 	case "create":
 		mgr.onCmdCreate(m, userId)
-
+	case "delete":
+		break
 	case "join":
 		mgr.onCmdJoin(m, userId)
 
@@ -129,6 +130,13 @@ func (mgr *Manager) onCmdCreate(m msg.Msg, userId int) {
 	mgr.userSessionMap[userId] = session
 
 	// 自动给table发送一个sit消息
+	m.SetResults(map[string]interface{}{
+		"msg":     "ok",
+		"retcode": 0,
+		"tableId": session.TableId,
+	})
+
+	mgr.SendRes(userId, m)
 }
 
 var wg sync.WaitGroup
@@ -176,6 +184,56 @@ func (mgr *Manager) createOneTable() (TableSession, bool) {
 
 func (mgr *Manager) findOneTableId() (int, bool) {
 	return 1, true
+}
+
+func (mgr *Manager) SendRes(userId int, m msg.Msg) {
+	m.SetKey("userId", userId)
+	mgr.MsgOut <- m
+}
+
+func (r *Manager) onCmdDelete(m msg.Msg) {
+	userId := m["userId"].(int)
+	tableId := m["tableId"].(int)
+
+	session, ok := r.findTableSessionByRoomId(tableId)
+
+	if !ok {
+		log.Println("cant found room", m)
+		return
+	}
+
+	if session.Table.Creator().UserId() != userId {
+		log.Println("not the creator")
+		return
+	}
+
+	// delete one room
+	ok = r.deleteOneTable(tableId)
+	if !ok {
+		log.Println("delete not ok..")
+		return
+	}
+
+	m.SetResults(map[string]interface{}{
+		"retcode": 0,
+		"msg":     "ok",
+		"tableId": tableId,
+	})
+
+	r.SendRes(userId, m)
+
+}
+
+func (r *Manager) deleteOneTable(roomId int) (ok bool) {
+	session, ok := r.findTableSessionByRoomId(roomId)
+	session.Close()
+	delete(r.tableSessionMap, roomId)
+	return
+}
+
+func (r *Manager) findTableSessionByRoomId(roomId int) (session TableSession, ok bool) {
+	session, ok = r.tableSessionMap[roomId]
+	return
 }
 
 func (mgr *Manager) onCmdJoin(m msg.Msg, userId int) {
