@@ -10,6 +10,6 @@ func main() {
 	log.Println("main,,,NumCPU", runtime.NumCPU())
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
-	chat.StartLocalTest()
+	chat.Start()
 
 }
