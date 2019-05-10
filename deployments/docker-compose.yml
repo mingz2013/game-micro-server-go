@@ -1,0 +1,91 @@
+version: '3.3'
+services:
+
+  redis-mq:
+    image: redis:latest
+    ports:
+    - "6379:6379"
+    restart: always
+    volumes:
+    - /Users/zhaojm/tmp/data:/data
+
+  web-proxy-server-go:
+    image: mingz2013/web-proxy-server-go:latest
+    ports:
+    - "8006:8006"
+    links:
+    - redis-mq:redis-mq
+
+  connector-server-go:
+    image: mingz2013/connector-server-go:latest
+    ports:
+    - "8001:8001"
+    links:
+    - redis-mq:redis-mq
+
+  login-server-go:
+    image: mingz2013/login-server-go:latest
+    ports:
+    - "8000:8000"
+    links:
+    - redis-mq:redis-mq
+
+  robot-server-go:
+    image: mingz2013/robot-server-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+
+
+  daemon-server-go:
+    image: mingz2013/daemon-server-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+  game-manager-server-go:
+    image: mingz2013/game-manager-server-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+
+
+
+
+
+
+
+  chat-room-manager-go:
+    image: mingz2013/chat-room-manager-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+  mahjong-table-go:
+    image: mingz2013/mahjong-table-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+  chinese-chess-table-go:
+    image: mingz2013/chinese-chess-table-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+
+
+
+  game-2048-go:
+    image: mingz2013/game-2048-go:latest
+    links:
+    - redis-mq:redis-mq
+
+
+  magic-cube-go:
+    image: mingz2013/magic-cube-go:latest
+    links:
+    - redis-mq:redis-mq
+

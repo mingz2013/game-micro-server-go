@@ -1,0 +1,15 @@
+{
+  "redis-mq": {
+    "host": "redis-mq",
+    "port": "6379",
+    "channel": "redis-mq"
+  },
+  "web-proxy-server-go": {
+    "host": "web-proxy-server-go",
+    "port": "8006",
+    "channel": "web-proxy-server-go"
+  },
+  "robot-server-go": {
+    "channel": "robot-server-go"
+  }
+}

@@ -2,17 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/connector-server-go/app"
-	"log"
+	"github.com/mingz2013/game-manager-server-go/server"
 )
 
-func parseArgs() {
-	// 根据参数，确定是什么协议的服务，还有service id
-
-}
-
 func main() {
-	log.Println("main...")
 
 	confMap := map[string]map[string]interface{}{
 		"redisChannelConf": {
@@ -26,8 +19,9 @@ func main() {
 			"port": "8000",
 		},
 	}
-	data, _ := json.Marshal(confMap)
-	a := app.NewApp(data)
-	a.Start()
 
+	data, _ := json.Marshal(confMap)
+
+	a := server.NewApp(data)
+	a.Start()
 }

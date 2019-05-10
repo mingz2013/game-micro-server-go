@@ -1,19 +1,9 @@
 package main
 
-import (
-	"encoding/json"
-	"github.com/mingz2013/connector-server-go/app"
-	"log"
-)
-
-func parseArgs() {
-	// 根据参数，确定是什么协议的服务，还有service id
-
-}
+import "encoding/json"
+import "github.com/mingz2013/daemon-server-go/server"
 
 func main() {
-	log.Println("main...")
-
 	confMap := map[string]map[string]interface{}{
 		"redisChannelConf": {
 			"host":    "redis-mq",
@@ -21,13 +11,12 @@ func main() {
 			"db":      1,
 			"channel": "connector-server",
 		},
-		"connectorConf": {
+		"api": {
 			"host": "localhost",
 			"port": "8000",
 		},
 	}
 	data, _ := json.Marshal(confMap)
-	a := app.NewApp(data)
+	a := server.NewApp(data)
 	a.Start()
-
 }
