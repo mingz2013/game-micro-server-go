@@ -1,2 +1,3 @@
-# lib-go
-lib-go myself
+# game-micro-server-go
+
+
