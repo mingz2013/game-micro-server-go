@@ -1,4 +1,4 @@
-package web_proxy
+package web
 
 import (
 	"github.com/labstack/echo"
