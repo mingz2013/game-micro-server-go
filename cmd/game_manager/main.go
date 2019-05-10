@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/game-manager-server-go/server"
+	"github.com/mingz2013/game-micro-server-go/internal/app/game_manager"
 )
 
 func main() {
@@ -22,6 +22,6 @@ func main() {
 
 	data, _ := json.Marshal(confMap)
 
-	a := server.NewApp(data)
+	a := game_manager.NewApp(data)
 	a.Start()
 }

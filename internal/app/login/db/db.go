@@ -1,4 +1,4 @@
-package login
+package db
 
 import "github.com/gomodule/redigo/redis"
 

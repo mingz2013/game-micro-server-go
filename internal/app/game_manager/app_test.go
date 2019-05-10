@@ -1,4 +1,4 @@
-package server
+package game_manager
 
 import "testing"
 import "encoding/json"
@@ -12,12 +12,14 @@ func TestNewApp(t *testing.T) {
 			"db":      1,
 			"channel": "connector-server",
 		},
-		"api": {
+		"connectorConf": {
 			"host": "localhost",
 			"port": "8000",
 		},
 	}
+
 	data, _ := json.Marshal(confMap)
+
 	a := NewApp(data)
 	a.Start()
 }

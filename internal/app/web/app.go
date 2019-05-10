@@ -3,7 +3,9 @@ package web
 import (
 	"encoding/json"
 	"github.com/labstack/echo"
-	"github.com/mingz2013/lib-go/actor"
+	"github.com/mingz2013/game-micro-server-go/internal/app/web/controllers"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/actor"
+	"gopkg.in/go-playground/validator.v8"
 	"log"
 	"net/http"
 )
@@ -88,24 +90,21 @@ func (a *App) OnRobotStart(c echo.Context) error {
 func (a *App) StartHttp() {
 	e := echo.New()
 
+	e.Validator = &CustomValidator{validator: validator.New(nil)}
+
 	e.GET("/", func(context echo.Context) error {
 		return context.String(http.StatusOK, "hello, world!")
 	})
 
-	//e.POST("/users", saveUser)
-	//e.GET("/users/:id", getUser)
-	//e.PUT("/users/:id", updateUser)
-	//e.DELETE("/users/:id", deleteUser)
-	//
-	//e.GET("/show", show)
-	//e.POST("/save", save)
-	//e.POST("/saveFile", saveFile)
+	controllers.RegisterRouters(e)
+
+	e.Any("/", notFound)
 
 	e.Static("/static", "./static")
 
-	// ---
+	e.Logger.Fatal(e.Start(":8001"))
+}
 
-	e.GET("/robot/start/", a.OnRobotStart)
-
-	e.Logger.Fatal(e.Start("0.0.0.0:8006"))
+func notFound(c echo.Context) error {
+	return c.String(http.StatusNotFound, "not found")
 }

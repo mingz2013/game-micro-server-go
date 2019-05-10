@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mingz2013/service-manager-cli/actions/robot"
+	"github.com/mingz2013/game-micro-server-go/internal/app/cli/actions/robot"
 	"github.com/urfave/cli"
 	"log"
 	"os"

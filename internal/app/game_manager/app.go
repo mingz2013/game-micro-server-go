@@ -1,10 +1,10 @@
-package server
+package game_manager
 
-import "github.com/mingz2013/lib-go/actor"
+import "github.com/mingz2013/game-micro-server-go/internal/pkg/actor"
 import (
 	"encoding/json"
-	"github.com/mingz2013/game-manager-server-go/manager"
-	"github.com/mingz2013/lib-go/msg"
+	"github.com/mingz2013/game-micro-server-go/internal/app/game_manager/manager"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/msg"
 )
 
 type App struct {

@@ -2,7 +2,7 @@ package manager
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/lib-go/msg"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/msg"
 )
 
 //```

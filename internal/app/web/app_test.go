@@ -1,4 +1,4 @@
-package server
+package web
 
 import "testing"
 import "encoding/json"

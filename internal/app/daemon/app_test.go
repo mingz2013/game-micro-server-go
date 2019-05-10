@@ -1,4 +1,4 @@
-package server
+package daemon
 
 import "testing"
 import "encoding/json"
@@ -12,14 +12,12 @@ func TestNewApp(t *testing.T) {
 			"db":      1,
 			"channel": "connector-server",
 		},
-		"connectorConf": {
+		"api": {
 			"host": "localhost",
 			"port": "8000",
 		},
 	}
-
 	data, _ := json.Marshal(confMap)
-
 	a := NewApp(data)
 	a.Start()
 }

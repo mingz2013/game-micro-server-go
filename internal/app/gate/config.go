@@ -1,7 +1,7 @@
-package app
+package gate
 
 import (
-	"github.com/mingz2013/lib-go/net_base"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/net_base"
 )
 
 type Config struct {

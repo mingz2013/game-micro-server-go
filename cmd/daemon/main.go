@@ -1,7 +1,7 @@
 package main
 
 import "encoding/json"
-import "github.com/mingz2013/daemon-server-go/server"
+import "github.com/mingz2013/game-micro-server-go/internal/app/daemon"
 
 func main() {
 	confMap := map[string]map[string]interface{}{
@@ -17,6 +17,6 @@ func main() {
 		},
 	}
 	data, _ := json.Marshal(confMap)
-	a := server.NewApp(data)
+	a := daemon.NewApp(data)
 	a.Start()
 }

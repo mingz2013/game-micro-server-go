@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/connector-server-go/app"
+	"github.com/mingz2013/game-micro-server-go/internal/app/gate"
 	"log"
 )
 
@@ -27,7 +27,7 @@ func main() {
 		},
 	}
 	data, _ := json.Marshal(confMap)
-	a := app.NewApp(data)
+	a := gate.NewApp(data)
 	a.Start()
 
 }
