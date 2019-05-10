@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4d400fb6-6df1-4ff2-891b-bd90807bb4a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/msg/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/msg/msg.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1789740984">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.0" value="6" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="c" value="1" />
+          <entry key="gitignore" value="2" />
+          <entry key="go" value="448" />
+          <entry key="html" value="4" />
+          <entry key="md" value="5" />
+          <entry key="png" value="1" />
+          <entry key="redisgo" value="2" />
+          <entry key="rpop" value="2" />
+          <entry key="s" value="3" />
+          <entry key="sub" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C++" value="1" />
+          <entry key="Go" value="448" />
+          <entry key="HTML" value="4" />
+          <entry key="Image" value="1" />
+          <entry key="Markdown" value="5" />
+          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="x86 Plan9 Assembly" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="go" value="8667" />
+          <entry key="md" value="9" />
+          <entry key="txt" value="77" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Go" value="8667" />
+          <entry key="Markdown" value="9" />
+          <entry key="PLAIN_TEXT" value="77" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.go.postfix.template.usages.trigger" />
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/args.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/actor/redis_channel_actor.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/msg/msg.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="793">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/cmd.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>epoll</find>
+      <find>epoll_wa</find>
+      <find>realSyscall</find>
+      <find>SYS_epoll_wait</find>
+      <find>Syscall6</find>
+      <find>epollwait</find>
+      <find>SWI</find>
+      <find>reader</find>
+      <find>readRequest</find>
+      <find>tp</find>
+      <find>newBufioWriterSize</find>
+      <find>errUnexpectedEOF</find>
+      <find>OnClientConnect</find>
+      <find>onco</find>
+      <find>connections</find>
+      <find>addConn</find>
+      <find>handleConn</find>
+      <find>Conn</find>
+      <find>PROTO_TCP</find>
+      <find>ReceiveMail</find>
+      <find>connection closed</find>
+      <find>errConnClosed</find>
+      <find>OnRedisChannelMessage</find>
+    </findStrings>
+    <dirStrings>
+      <dir>/usr/local/Cellar/go/1.11/libexec/src/net</dir>
+      <dir>/usr/local/Cellar/go/1.11/libexec/src/runtime</dir>
+      <dir>/usr/local/Cellar/go/1.11/libexec/src</dir>
+      <dir>$PROJECT_DIR$/../../panshiqu/framework/network</dir>
+      <dir>$PROJECT_DIR$/net_tcp</dir>
+      <dir>$PROJECT_DIR$/net_ws</dir>
+      <dir>$PROJECT_DIR$/net.bak</dir>
+      <dir>$PROJECT_DIR$/../../gomodule/redigo</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.11.1/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/net_frame/ws/conn.go" />
+        <option value="$PROJECT_DIR$/net_frame/ws/server.go" />
+        <option value="$PROJECT_DIR$/net_tcp/conn_writer.go" />
+        <option value="$PROJECT_DIR$/net_tcp/conn_reader.go" />
+        <option value="$PROJECT_DIR$/net_tcp/handler.go" />
+        <option value="$PROJECT_DIR$/net_tcp/client.go" />
+        <option value="$PROJECT_DIR$/net_tcp/conn.go" />
+        <option value="$PROJECT_DIR$/net_tcp/server.go" />
+        <option value="$PROJECT_DIR$/net_tcp/server_test.go" />
+        <option value="$PROJECT_DIR$/net_tcp/client_test.go" />
+        <option value="$PROJECT_DIR$/net/tcp/server.go" />
+        <option value="$PROJECT_DIR$/net_ws/client_test.go" />
+        <option value="$PROJECT_DIR$/net_ws/handler.go" />
+        <option value="$PROJECT_DIR$/net_ws/client.go" />
+        <option value="$PROJECT_DIR$/net_ws/hub.go" />
+        <option value="$PROJECT_DIR$/net_ws/server.go" />
+        <option value="$PROJECT_DIR$/net_ws/server_test.go" />
+        <option value="$PROJECT_DIR$/net_ws/conn.go" />
+        <option value="$PROJECT_DIR$/net_base/server.go" />
+        <option value="$PROJECT_DIR$/net_base/net_ws/handler.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/handler.go" />
+        <option value="$PROJECT_DIR$/net_base/net_ws/server.go" />
+        <option value="$PROJECT_DIR$/net.bak/tcp/conn_reader.go" />
+        <option value="$PROJECT_DIR$/net_base/net_ws/conn.go" />
+        <option value="$PROJECT_DIR$/net_base/handler.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/client.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/server.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/server_test.go" />
+        <option value="$PROJECT_DIR$/net_base/net_ws/server_test.go" />
+        <option value="$PROJECT_DIR$/net_base/conn.go" />
+        <option value="$PROJECT_DIR$/actor/config.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/client_test.go" />
+        <option value="$PROJECT_DIR$/net_base/net_tcp/conn.go" />
+        <option value="$PROJECT_DIR$/db/redis/pool.go" />
+        <option value="$PROJECT_DIR$/db/redis/client_test.go" />
+        <option value="$PROJECT_DIR$/db/redis/client.go" />
+        <option value="$PROJECT_DIR$/db/myredis/client.go" />
+        <option value="$PROJECT_DIR$/db/myredis/client_test.go" />
+        <option value="$PROJECT_DIR$/actor/ConnectorActor.go" />
+        <option value="$PROJECT_DIR$/actor/actor_test.go" />
+        <option value="$PROJECT_DIR$/mq/redismq/handler.go" />
+        <option value="$PROJECT_DIR$/actor/actor.go" />
+        <option value="$PROJECT_DIR$/../../gomodule/redigo/redis/pubsub_example_test.go" />
+        <option value="$PROJECT_DIR$/mq/redismq/client_test.go" />
+        <option value="$PROJECT_DIR$/actor/mail.go" />
+        <option value="$PROJECT_DIR$/actor/redis_channel_actor_test.go" />
+        <option value="$PROJECT_DIR$/mq/redismq/client.go" />
+        <option value="$PROJECT_DIR$/actor/connector_actor.go" />
+        <option value="$PROJECT_DIR$/actor/redis_channel_actor.go" />
+        <option value="$PROJECT_DIR$/actor/redis_channel_actor_handler.go" />
+        <option value="$PROJECT_DIR$/msg/msg.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="64" />
+    <option name="y" value="23" />
+    <option name="width" value="1376" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lib-go" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lib-go" type="462c0819:PsiDirectoryNode" />
+              <item name="actor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lib-go" type="462c0819:PsiDirectoryNode" />
+              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lib-go" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="mingz2013" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="mingz2013" type="462c0819:PsiDirectoryNode" />
+              <item name="mahjong-table-go" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lib-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;lib-go&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="mingz2013" type="462c0819:PsiDirectoryNode" />
+              <item name="mahjong-table-go" type="462c0819:PsiDirectoryNode" />
+              <item name="msg" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/msg" />
+      <recent name="$PROJECT_DIR$/actor" />
+      <recent name="$PROJECT_DIR$/net_ws" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/net_base" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.redis_channel_actor_test.go">
+    <configuration name="TestNewRedisChannelActor in github.com/mingz2013/lib-go/actor" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lib-go" />
+      <working_directory value="$PROJECT_DIR$/actor" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mingz2013/lib-go/actor" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestNewRedisChannelActor$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lib-go" />
+      <working_directory value="$PROJECT_DIR$/mq/redismq" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mingz2013/lib-go/mq/redismq" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestNewRedisMQClient$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="client_test.go (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lib-go" />
+      <working_directory value="$PROJECT_DIR$/db/myredis" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="github.com/mingz2013/lib-go" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/db/myredis/client_test.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="client_test.go (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lib-go" />
+      <working_directory value="$PROJECT_DIR$/mq/redismq" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="github.com/mingz2013/lib-go" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/mq/redismq/client_test.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="redis_channel_actor_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lib-go" />
+      <working_directory value="$PROJECT_DIR$/actor" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="github.com/mingz2013/lib-go" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/actor/redis_channel_actor_test.go" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Test.TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" />
+      <item itemvalue="Go Test.client_test.go (1)" />
+      <item itemvalue="Go Test.client_test.go (2)" />
+      <item itemvalue="Go Test.TestNewRedisChannelActor in github.com/mingz2013/lib-go/actor" />
+      <item itemvalue="Go Test.redis_channel_actor_test.go" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.redis_channel_actor_test.go" />
+        <item itemvalue="Go Test.client_test.go (2)" />
+        <item itemvalue="Go Test.TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" />
+        <item itemvalue="Go Test.TestNewRedisChannelActor in github.com/mingz2013/lib-go/actor" />
+        <item itemvalue="Go Test.client_test.go (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestNewRedisMQClient_in_github_com_mingz2013_lib-go_mq_redismq - 2018.10.22 at 11h 03m 11s.xml">
+      <configuration name="TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNewRedisMQClient_in_github_com_mingz2013_lib-go_mq_redismq - 2018.10.22 at 11h 17m 05s.xml">
+      <configuration name="TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNewRedisMQClient_in_github_com_mingz2013_lib-go_mq_redismq - 2018.10.22 at 11h 25m 46s.xml">
+      <configuration name="TestNewRedisMQClient in github.com/mingz2013/lib-go/mq/redismq" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 11h 50m 35s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 11h 55m 19s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 11h 57m 39s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 11h 58m 21s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 12h 03m 13s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 12h 03m 46s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="redis_channel_actor_test_go - 2018.10.22 at 13h 35m 37s.xml">
+      <configuration name="redis_channel_actor_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4993804" visible="true" weight="0.3018598" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.29120198" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32218093" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.20198265" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Structure" order="4" sideWeight="0.5006196" side_tool="true" weight="0.11731044" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lib-go" />
+    <MESSAGE value="tcp" />
+    <MESSAGE value="net" />
+    <MESSAGE value="ws" />
+    <MESSAGE value="bak net" />
+    <MESSAGE value="日志" />
+    <MESSAGE value="redis" />
+    <MESSAGE value="redis channel handler" />
+    <MESSAGE value="actor" />
+    <MESSAGE value="msg" />
+    <option name="LAST_COMMIT_MESSAGE" value="msg" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/net_base/conn.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net_base/net_tcp/conn.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net_base/net_tcp/client_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net_base/net_tcp/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/amqp_client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/rabbit.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/rpc_rabbitmq.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_server.go.redisgo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_server.go.rpop">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_server.go.sub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_client.go.redisgo">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_client.go.rpop">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../liangdas/mqant/rpc/base/redis_client.go.sub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/redis/pool.go" />
+    <entry file="file:///usr/local/Cellar/go/1.11.1/libexec/src/encoding/json/decode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/conn.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/reply.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="148" column="11" selection-start-line="148" selection-start-column="11" selection-end-line="148" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../study.go/test-014-channel/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/myredis/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../study.go/test-700-redis/runredis.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="435">
+            <caret line="29" selection-start-line="29" selection-end-line="29" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../study.go/test-700-redis/test-redis-redigo.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../study.go/test-700-redis/test-redis-redigo-pubsub.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" selection-start-line="76" selection-end-line="90" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/myredis/client_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net_base/handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.11.1/libexec/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="1110" column="14" selection-start-line="1110" selection-start-column="14" selection-end-line="1110" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/actor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.11.1/libexec/src/encoding/json/encode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="156" column="5" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/pool_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="746" lean-forward="true" selection-start-line="746" selection-end-line="746" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../lonnng/nanoserver/vendor/github.com/garyburd/redigo/redis/pool.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="390" column="26" selection-start-line="390" selection-start-column="26" selection-end-line="390" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../lonnng/nanoserver/vendor/github.com/garyburd/redigo/redis/redis.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/redis.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/pool.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="380" lean-forward="true" selection-start-line="380" selection-end-line="380" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/pubsub.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/pubsub_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gomodule/redigo/redis/pubsub_example_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2115">
+          <caret line="141" column="22" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq/redismq/client_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/mail.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/redis_channel_actor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq/redismq/handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq/redismq/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/redis_channel_actor_handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/connector_actor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/connector_actor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/args.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/cmd.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actor/redis_channel_actor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/msg.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
