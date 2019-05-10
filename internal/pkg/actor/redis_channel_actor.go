@@ -2,7 +2,7 @@ package actor
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/lib-go/internal/pkg/mq/redismq"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/mq/redismq"
 	"log"
 	"sync"
 	"time"

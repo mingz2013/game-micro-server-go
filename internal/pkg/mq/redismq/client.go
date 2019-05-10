@@ -2,7 +2,7 @@ package redismq
 
 import (
 	"github.com/gomodule/redigo/redis"
-	"github.com/mingz2013/lib-go/internal/pkg/db/myredis"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/db/myredis"
 	"log"
 	"sync"
 )

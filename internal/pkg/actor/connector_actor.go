@@ -2,9 +2,9 @@ package actor
 
 import (
 	"encoding/json"
-	"github.com/mingz2013/lib-go/internal/pkg/net_base"
-	"github.com/mingz2013/lib-go/internal/pkg/net_base/net_tcp"
-	"github.com/mingz2013/lib-go/internal/pkg/net_base/net_ws"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/net_base"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/net_base/net_tcp"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/net_base/net_ws"
 	"log"
 )
 

@@ -2,7 +2,7 @@ package ws
 
 import (
 	"github.com/gorilla/websocket"
-	"github.com/mingz2013/lib-go/net"
+	"github.com/mingz2013/game-micro-server-go/net"
 	"log"
 	"net/http"
 )

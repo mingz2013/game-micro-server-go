@@ -1,7 +1,7 @@
 package net_ws
 
 import (
-	"github.com/mingz2013/lib-go/internal/pkg/net_base"
+	"github.com/mingz2013/game-micro-server-go/internal/pkg/net_base"
 	"log"
 	"testing"
 )
