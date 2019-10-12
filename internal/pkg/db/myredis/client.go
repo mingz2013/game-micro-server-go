@@ -24,7 +24,8 @@ func NewRedisClient(conf string) *RedisClient {
 }
 
 func (c *RedisClient) Init(conf string) {
-	log.Println(conf)
+	log.Println("Init", "conf:", conf)
+
 	var confJs map[string]interface{}
 	err := json.Unmarshal([]byte(conf), &confJs)
 

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/mingz2013/web-proxy-server-go/server"
+import "github.com/mingz2013/game-micro-server-go/internal/app/web"
 import (
 	"encoding/json"
 	//"github.com/mingz2013/web-proxy-server-go/global"
